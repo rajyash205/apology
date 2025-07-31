@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forgive Me</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-align: center;
+      background: linear-gradient(to top, #ffe6eb, #ffccd5);
+    }
+    #gif {
+      width: 260px;
+      margin-top: 50px;
+      transition: 0.3s;
+    }
+    #message {
+      color: #d63384;
+      font-size: 24px;
+      margin: 20px auto;
+      font-weight: bold;
+      max-width: 85%;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #yesBtn {
+      background-color: #28a745;
+      color: white;
+    }
+    #noBtn {
+      background-color: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <img id="gif" src="https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif" alt="Sad Apology" />
+  <div id="message">I'm really sorry 😔... please forgive me.</div>
+
+  <button id="yesBtn">Yes</button>
+  <button id="noBtn">Are You Sure?</button>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const message = document.getElementById('message');
+    const gif = document.getElementById('gif');
+
+    const messages = [
+      "Please 😢... I really didn't mean to hurt you.",
+      "My heart is breaking 💔. Please don't say no...",
+      "You're my world 🌍. Don't push me away 😭",
+      "I miss your smile already 🥺. Forgive me, please?",
+      "Every moment without you hurts 💔.",
+      "I'll do anything to make it right 🙏.",
+      "I’m truly sorry… give me one more chance 😔",
+      "Remember our memories? Don’t let them fade 😞",
+      "Even the stars seem sad tonight without you 🌌",
+      "I need you more than ever 💖.",
+      "I promise to be better, just don’t leave me 😭",
+      "Tears won’t stop falling 😭💔. Please forgive me…",
+      "No one can love you like I do 💘",
+      "My heart is aching… 🥺",
+      "Don’t leave me in the dark 💡",
+      "I cry myself to sleep 😭",
+      "I’ll never stop waiting for you 🕰️",
+      "I’ve learned my lesson… please 🥺",
+      "I can't breathe without your smile 😣",
+      "Just one yes can heal me 💖"
+    ];
+
+const gifs = [
+  "https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif", // sad dog tears
+  "https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif", // crying kitten
+  "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif", // animated tears
+  "https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif", // droplet eyes
+  "https://media.giphy.com/media/2w9fVcXwltPSI/giphy.gif", // cat with sorry text
+  "https://media.giphy.com/media/l4EoXLcLp16Ti1dp6/giphy.gif", // sad panda
+  "https://media.giphy.com/media/5xtDarEFV5oQFw8MtfG/giphy.gif", // broken heart bear
+  "https://media.giphy.com/media/ekMUazk0ZjXmA/giphy.gif", // cartoon crying
+  "https://media.giphy.com/media/l2JehQ2GitHGdVG9y/giphy.gif", // crying bunny
+  "https://media.giphy.com/media/KAqzZ8AQ0WdCm/giphy.gif", // teary-eyed kid
+  "https://media.giphy.com/media/xUPGcguWZHRC2HyBRS/giphy.gif", // sad fox
+  "https://media.giphy.com/media/3o6ZtdfyZRa4vIfBdy/giphy.gif", // soulful eyes
+  "https://media.giphy.com/media/OmK8lulOMQ9XO/giphy.gif", // puppy sorrow
+  "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif", // famous sad cat
+  "https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif", // tearful seal
+  "https://media.giphy.com/media/hyU0RHvlpnhRe/giphy.gif", // drooping creature
+  "https://media.giphy.com/media/fxU7Cz8yDqrS4/giphy.gif", // lonely bird
+  "https://media.giphy.com/media/1BXa2alBjrCXC/giphy.gif", // expressive tear face
+  "https://media.giphy.com/media/d2lcHJTG5Tscg/giphy.gif", // soul-crushed pet
+  "https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif"  // emotional text apology
+];
+
+
+    let clickCount = 0;
+
+    noBtn.addEventListener('click', () => {
+      if (clickCount < messages.length) {
+        message.innerText = messages[clickCount];
+        gif.src = gifs[clickCount];
+        yesBtn.style.fontSize = `${18 + clickCount}px`;
+        yesBtn.style.padding = `${10 + clickCount}px ${20 + clickCount * 2}px`;
+        clickCount++;
+      } else {
+        message.innerText = "Okay... I'll wait forever 😔💔";
+        gif.src = gifs[gifs.length - 1];
+        noBtn.disabled = true;
+        noBtn.innerText = "😞";
+      }
+    });
+
+    yesBtn.addEventListener('click', () => {
+      message.innerHTML = 'Yaaay!! You forgave me 💖🥰<br>I promise I’ll never hurt you again.';
+      gif.src = "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif"; // celebration gif
+      yesBtn.style.display = 'none';
+      noBtn.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
